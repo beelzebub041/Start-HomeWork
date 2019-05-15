@@ -53,6 +53,8 @@ cc.Class({
             
             // 銷毀節點
             this.node.destroy();
+
+            console.log('destroy add Score');
         }
         else {
             this.timer += dt;

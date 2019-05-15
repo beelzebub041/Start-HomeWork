@@ -60,6 +60,12 @@ cc.Class({
             default: null,
             type: cc.Prefab
             },
+
+        // 閃耀 Prefab
+        shinePrefab: {
+            default: null,
+            type: cc.Prefab
+            },
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -195,6 +201,15 @@ cc.Class({
          // 新增到Cancas節點下
          this.node.addChild(newAddScore);
          newAddScore.setPosition(cc.v2(x,y));
+    },
+
+    showShine: function (x,y) {
+        
+         // 建立閃耀prefab
+         var shine = cc.instantiate(this.shinePrefab);
+         // 新增到Cancas節點下
+         this.node.addChild(shine);
+         shine.setPosition(cc.v2(x,y));
     },
 
     // 遊戲結束

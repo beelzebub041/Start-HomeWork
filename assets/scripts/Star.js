@@ -44,6 +44,8 @@ cc.Class({
         this.game.gainScore();
         // 呼叫Game腳本的加分方法
         this.game.showAddScore(this.node.x,this.node.y);
+        // 呼叫Game腳本的閃耀方法
+        this.game.showShine(this.node.x,this.node.y);
 
         // 然后销毁当前星星节点
         this.node.destroy();

@@ -12,28 +12,40 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-
+        
     },
 
     // LIFE-CYCLE CALLBACKS:
 
-    // onLoad () {},
+    onLoad () {
+
+        this.ani = this.getComponent(cc.Animation);
+
+        let aniState = this.ani.play('shine');
+
+        this.duration = aniState.duration;
+
+        this.timer = 0;
+    },
+
+    onPlayShine () {
+        animate.play('shine');
+    },
 
     start () {
 
     },
 
-    onLoad: function () {
-        console.log("Load");
-        this.node.on('mousedown', this.onTouchStart, this);
+    update (dt) {
+
+        if (this.timer >= this.duration) {
+            this.timer = 0;
+            this.node.destroy();
+        }
+        else
+        {
+            this.timer += dt;
+        }
 
     },
-
-    onTouchStart (event) {
-        console.log("Start");
-        cc.director.loadScene('game');
-    },
-
-
-    // update (dt) {},
 });
